@@ -25,4 +25,10 @@ public class TaskControllerImpl implements TaskController {
     public List<Task> getAllTasks() {
         return taskFacade.getAllTasks();
     }
+
+    @RequestMapping("/add")
+    @Override
+    public Task addTask(Task task) {
+        return taskFacade.addTask(task);
+    }
 }

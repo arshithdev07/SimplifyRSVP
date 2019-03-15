@@ -21,4 +21,9 @@ public class TaskFacadeImpl implements TaskFacade {
     public List<Task> getAllTasks() {
         return taskService.getAllTasks();
     }
+
+    @Override
+    public Task addTask(Task task) {
+        return taskService.addTask(task);
+    }
 }

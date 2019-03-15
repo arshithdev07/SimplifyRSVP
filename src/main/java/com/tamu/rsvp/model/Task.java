@@ -1,22 +1,30 @@
 package com.tamu.rsvp.model;
 
-import java.util.Date;
+import org.hibernate.annotations.CreationTimestamp;
+
+import javax.persistence.*;
+import java.sql.Timestamp;
 
 /**
  * Created by arshi on 10/23/2018.
  */
+@Entity
 public class Task {
 
-    private String taskId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long taskId;
     private String taskName;
-    private Date taskDate;
     private String taskDescription;
 
-    public String getTaskId() {
+    @CreationTimestamp
+    private Timestamp taskDate;
+
+    public Long getTaskId() {
         return taskId;
     }
 
-    public void setTaskId(String taskId) {
+    public void setTaskId(Long taskId) {
         this.taskId = taskId;
     }
 
@@ -28,11 +36,11 @@ public class Task {
         this.taskName = taskName;
     }
 
-    public Date getTaskDate() {
+    public Timestamp getTaskDate() {
         return taskDate;
     }
 
-    public void setTaskDate(Date taskDate) {
+    public void setTaskDate(Timestamp taskDate) {
         this.taskDate = taskDate;
     }
 

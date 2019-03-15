@@ -10,4 +10,5 @@ import java.util.List;
 public interface TaskFacade {
 
     List<Task> getAllTasks();
+    Task addTask(Task task);
 }

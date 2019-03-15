@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface TaskController {
     List<Task> getAllTasks();
+    Task addTask(Task task);
 }
