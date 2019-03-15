@@ -1,12 +1,12 @@
 package com.tamu.rsvp.repository;
 
-import com.tamu.rsvp.model.Task;
+import com.tamu.rsvp.model.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * Created by arshi on 3/14/2019.
+ * Created by arshi on 3/15/2019.
  */
 @Repository
-public interface TaskDAO extends JpaRepository<Task, Long> {
+public interface EventDAO extends JpaRepository<Event, Long> {
 }

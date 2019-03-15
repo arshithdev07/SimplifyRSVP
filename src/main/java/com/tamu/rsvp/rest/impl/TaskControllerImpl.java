@@ -6,6 +6,7 @@ import com.tamu.rsvp.rest.TaskController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class TaskControllerImpl implements TaskController {
         return taskFacade.getAllTasks();
     }
 
-    @RequestMapping("/add")
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     @Override
     public Task addTask(Task task) {
         return taskFacade.addTask(task);
