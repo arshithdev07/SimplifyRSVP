@@ -10,7 +10,8 @@ import java.util.List;
 public interface EventFacade {
 
     List<EventDTO> getAllEvents();
+    EventDTO getEventById(Long id);
     EventDTO createEvent(EventDTO eventDTO);
-    EventDTO updateEvent(EventDTO eventDTO);
-    void deleteEvent(EventDTO eventDTO);
+    EventDTO updateEvent(Long id, EventDTO eventDTO);
+    void deleteEvent(Long id);
 }

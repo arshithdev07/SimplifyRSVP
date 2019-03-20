@@ -28,21 +28,26 @@ public class EventFacadeImpl implements EventFacade {
     }
 
     @Override
+    public EventDTO getEventById(Long id) {
+        Event event = eventService.getEventById(id);
+        return dozerMappingService.map(event, EventDTO.class);
+    }
+
+    @Override
     public EventDTO createEvent(EventDTO eventDTO) {
         Event event = dozerMappingService.map(eventDTO, Event.class);
         return dozerMappingService.map(eventService.createEvent(event), EventDTO.class );
     }
 
     @Override
-    public EventDTO updateEvent(EventDTO eventDTO) {
+    public EventDTO updateEvent(Long id, EventDTO eventDTO) {
         Event event = dozerMappingService.map(eventDTO, Event.class);
-        return dozerMappingService.map(eventService.updateEvent(event), EventDTO.class );
+        return dozerMappingService.map(eventService.updateEvent(id, event), EventDTO.class );
     }
 
     @Override
-    public void deleteEvent(EventDTO eventDTO) {
-        Event event = dozerMappingService.map(eventDTO, Event.class);
-        eventService.deleteEvent(event);
+    public void deleteEvent(Long id) {
+        eventService.deleteEvent(id);
 
     }
 }

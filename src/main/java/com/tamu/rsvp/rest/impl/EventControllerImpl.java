@@ -12,33 +12,38 @@ import java.util.List;
  * Created by arshi on 3/15/2019.
  */
 @RestController
-@RequestMapping("/events")
 public class EventControllerImpl implements EventController {
 
     @Autowired
     EventFacade eventFacade;
 
     @Override
-    @GetMapping
+    @GetMapping("/events")
     public List<EventDTO> getAllEvents() {
         return eventFacade.getAllEvents();
     }
 
     @Override
-    @PostMapping(value = "/add")
-    public EventDTO createEvent(EventDTO eventDTO) {
+    @GetMapping("/events/{id}")
+    public EventDTO getEventById(@PathVariable Long id) {
+        return eventFacade.getEventById(id);
+    }
+
+    @Override
+    @PostMapping(value = "/events")
+    public EventDTO createEvent(@RequestBody EventDTO eventDTO) {
         return eventFacade.createEvent(eventDTO);
     }
 
     @Override
-    @PutMapping(value = "/edit")
-    public EventDTO updateEvent(EventDTO eventDTO) {
-        return eventFacade.updateEvent(eventDTO);
+    @PutMapping(value = "/events/{id}")
+    public EventDTO updateEvent(@PathVariable Long id, @RequestBody EventDTO eventDTO) {
+        return eventFacade.updateEvent(id, eventDTO);
     }
 
     @Override
-    @DeleteMapping(value = "/delete")
-    public void deleteEvent(EventDTO eventDTO) {
-        eventFacade.deleteEvent(eventDTO);
+    @DeleteMapping(value = "/events/{id}")
+    public void deleteEvent(@PathVariable Long id) {
+        eventFacade.deleteEvent(id);
     }
 }
